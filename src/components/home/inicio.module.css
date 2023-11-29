@@ -1,0 +1,10 @@
+.carouselContainer{
+    width: 85vw;
+    height: auto;
+    padding-top: 5.5rem;
+    margin: auto;
+    
+}
+.carouselContainer .slick-slider{
+    height: inherit;
+}

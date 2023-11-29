@@ -1,0 +1,65 @@
+.extraContainer{
+    background-color: #fde4cf;
+}
+.extra{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+    padding: .75rem .75rem 0 .75rem;
+}
+.extra .contenidoExtra:last-child{
+    grid-column: 1/3 ;
+}
+.contenidoExtra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenidoExtra img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.contenidoExtra p{
+    font-size: 12px;
+}
+.containerRedes{
+    padding: .5rem;
+    display: flex;
+    justify-content: space-around;
+}
+.containerRedes a{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: thin solid #000000;
+    border-radius: 50%;
+    padding: .5rem;
+}
+.pagosContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.pagosContainer div{
+    width: 2rem;
+    height: 2rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    display: flex;
+    justify-content: center;
+}
+.containerTerminos{
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.containerTerminos small{
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
