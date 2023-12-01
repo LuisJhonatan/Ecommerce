@@ -32,6 +32,21 @@
     height: 1.25rem;
     margin: .25rem .5rem;
 }
+
+.cartCount {
+    position: relative;
+}
+
+.cartCount span {
+    position: absolute;
+    font-size: .7rem;
+    top: -3px;
+    right: 0;
+    background-color: aquamarine;
+    border-radius: 50%;
+   padding: 1px 5px;
+}
+
 .btnMenu{
     width: 3rem;
     height: 3rem;

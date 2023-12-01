@@ -1,0 +1,39 @@
+.cardContainer {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.prodInfo {
+  color: rgb(39, 39, 39)
+}
+
+.priceStock {
+  margin-bottom: 10px;
+  padding: 0 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addToCart {
+  font-size: 1rem;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffcdb2;
+  border: none;
+  cursor: pointer;
+  padding: 7px 0;
+  border-radius: 4px;
+}
+
+.addToCart:hover {
+  background-color: #ffcdb295;
+}
+
+.addToCart:active {
+ transform: scale(.96);
+}

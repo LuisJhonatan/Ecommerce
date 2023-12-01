@@ -1,7 +1,7 @@
 /*Reset*/
 html {
   box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 16px;
   overflow-x: hidden;
 }
@@ -16,7 +16,7 @@ body {
   background-color: #f2e9e4;
   margin: 0;
   overflow-x: hidden;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 img {
@@ -26,4 +26,10 @@ img {
 
 a {
   text-decoration: none;
+}
+
+main {
+  margin: 150px auto 50px;
+  width: 75%;
+  min-height: 60vh;
 }

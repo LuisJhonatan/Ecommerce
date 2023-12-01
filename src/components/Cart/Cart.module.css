@@ -1,0 +1,79 @@
+
+.main {
+  width: 60%;
+}
+
+.prodsPay {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 1rem
+}
+
+.prodContainer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 2fr 1fr 1fr 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5rem;
+  border: 2px solid rgb(255, 106, 106);
+  padding: 10px;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+}
+
+
+
+.countContainer {
+  gap: 1rem;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.countContainer span {
+  margin: 0 10px;
+}
+
+.countContainer button {
+  background-color: #ffcdb2;
+  border: none;
+  font-size: 1.3rem;
+  width: 25px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.pay {
+  border: 2px solid rgb(255, 106, 106);
+  padding: 10px;
+  border-radius: 16px;
+  height: 250px;
+}
+
+.spaceBw {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payProd {
+  margin: 1rem auto;
+  font-size: 1rem;
+  justify-content: center;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffcdb2;
+  border: none;
+  cursor: pointer;
+  padding: 7px 0;
+  border-radius: 4px;
+}
+
+.payProd:hover {
+  background-color: #ffcdb295;
+}
+
+.payProd:active {
+  transform: scale(0.96);
+}
