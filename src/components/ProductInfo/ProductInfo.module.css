@@ -1,0 +1,71 @@
+.infoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.imgContainer {
+  min-width: 320px;
+}
+
+.imgSmall {
+  width: 80%;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.imgSmall img {
+  width: 80px;
+}
+
+.countContainer {
+  gap: 1rem;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.countContainer span {
+  margin: 0 10px;
+}
+
+.countContainer button {
+  background-color: #ffcdb2;
+  border: none;
+  font-size: 1.3rem;
+  width: 25px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.addToCart {
+  font-size: 1rem;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffcdb2;
+  border: none;
+  cursor: pointer;
+  padding: 7px 0;
+  border-radius: 4px;
+}
+
+.addToCart:hover {
+  background-color: #ffcdb295;
+}
+
+.addToCart:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 672px) {
+  .infoContainer {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

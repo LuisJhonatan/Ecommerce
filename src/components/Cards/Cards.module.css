@@ -1,0 +1,56 @@
+.cardContainer {
+  width: 100%;
+  position: relative;
+}
+
+.optionsContainer {
+  position: absolute;
+  right: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.optionsButton {
+  width: 170px;
+  height: 2rem;
+  background-color: transparent;
+  font-size: 1rem;
+  border: thin solid black;
+  cursor: pointer;
+  text-align: start;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  font-size: 1.1rem;
+  position: absolute;
+  right: 0px;
+  top: 36px;
+  border-radius: 8px;
+  border: thin solid black;
+  background-color: #f2e9e4;
+}
+
+.options button {
+  text-align: start;
+  background-color: transparent;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: 170px;
+  font-size: 1.1rem;
+  padding: 2px 0 2px 10px;
+  border-radius: 8px;
+}
+
+.options button:hover {
+  background-color: rgba(245, 245, 245, 0.5);
+}
