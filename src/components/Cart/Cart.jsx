@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./Cart.module.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { updateCart } from "../../redux/slices/cartSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { MdRemoveShoppingCart } from "react-icons/md";
 
 export const Cart = () => {
-  const [count, setCount] = useState(1);
   const [subTotal, setSubTotal] = useState(0);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartp);
@@ -21,7 +21,6 @@ export const Cart = () => {
     cart.forEach((prod) => {
       subtotal += parseFloat((prod.cantidad * prod.prod.precio).toFixed(2));
     });
-    console.log(cart);
     setSubTotal(subtotal.toFixed(2));
   };
 
@@ -34,62 +33,143 @@ export const Cart = () => {
 
   return (
     <main className={styles.main}>
-      <div className={styles.prodsPay}>
-        <section>
-          {cart.length === 0
-            ? "Cargando"
-            : cart.map((prod, i) => (
+      {cart.length === 0 ? (
+        <article className={styles.cartVoid}>
+          <MdRemoveShoppingCart className={styles.cartVoidIcon} />
+          <p>
+            <b>Aun no tienes articulos agregados al carrito</b>
+          </p>
+          <Link to='/productos'>
+            <button className={styles.cartVoidButton}>Explorar articulos</button>
+          </Link>
+        </article>
+      ) : (
+        <>
+          <div className={styles.prodsPay}>
+            <section>
+              {cart.map((prod, i) => (
                 <article key={i} className={styles.prodContainer}>
-                  <img src={prod.prod.imagen[0]} alt="" />
+                  <img src={prod.prod.imagen[0]} alt={prod.prod.nombre} />
                   <div>
-                    <h2>{prod.prod.nombre}asda</h2>
+                    <Link
+                      to={`/productos/${prod.id}`}
+                      className={styles.nameLink}
+                    >
+                      <h2>{prod.prod.nombre}</h2>
+                    </Link>
                     <span>color: {prod.prod.color}</span>
+                    <br />
+                    <span>Cantidad: {prod.cantidad}</span>
                     <p>S/{prod.prod.precio}</p>
                   </div>
-                  <div className={styles.countContainer}>
-                    <button
-                      onClick={() => setCount(count - 1)}
-                      disabled={count < 2}
-                    >
-                      -
-                    </button>
-                    <span>{prod.cantidad}</span>
-                    <button
-                      onClick={() => setCount(count + 1)}
-                      disabled={count === 5}
-                    >
-                      +
-                    </button>
-                  </div>
+
                   <div>
+                    <span>
+                      <b>Total:</b>
+                    </span>
                     <h3>S/{(prod.cantidad * prod.prod.precio).toFixed(2)} </h3>
                   </div>
                   <div>
-                    <RiDeleteBin6Line onClick={(e) => deleteProd(e, i)} />
+                    <RiDeleteBin6Line
+                      onClick={(e) => deleteProd(e, i)}
+                      className={styles.deleteIcon}
+                    />
                   </div>
                 </article>
               ))}
-        </section>
-        <section className={styles.pay}>
-          <h2>Resumen</h2>
-          <div className={`${styles.spaceBw}`}>
-            <span>Subtotal:</span>
-            <span>S/{subTotal}</span>
+            </section>
+            <section className={styles.pay}>
+              <h2>Resumen</h2>
+              <div className={`${styles.spaceBw}`}>
+                <span>Subtotal:</span>
+                <span>S/{subTotal}</span>
+              </div>
+              <div className={`${styles.spaceBw}`}>
+                <span>Gastos de envío:</span>
+                <span>S/0.00</span>
+              </div>
+              <hr />
+              <div className={`${styles.spaceBw}`}>
+                <span>Total a pagar: </span>
+                <span>S/{subTotal}</span>
+              </div>
+              <button className={styles.payProd}>
+                <span>Pagar</span>
+              </button>
+            </section>
           </div>
-          <div className={`${styles.spaceBw}`}>
-            <span>Gastos de envío:</span>
-            <span>S/0.00</span>
-          </div>
-          <hr />
-          <div className={`${styles.spaceBw}`}>
-            <span>Total a pagar: </span>
-            <span>S/{subTotal}</span>
-          </div>
-          <button className={styles.payProd}>
-            <span>Pagar</span>
-          </button>
-        </section>
-      </div>
+        </>
+      )}
     </main>
   );
 };
+
+/* return (
+    <main className={styles.main}>
+      <div className={styles.prodsPay}>
+        <section>
+          {cart.length === 0 ? (
+            <article className={styles.cartVoid}>
+              <MdRemoveShoppingCart />
+              <p>Aun no tienes articulos agregados al carrito</p>
+              <Link>
+                <button>Explorar articulos</button>
+              </Link>
+            </article>
+          ) : (
+            cart.map((prod, i) => (
+              <article key={i} className={styles.prodContainer}>
+                <img src={prod.prod.imagen[0]} alt={prod.prod.nombre} />
+                <div>
+                  <Link
+                    to={`/productos/${prod.id}`}
+                    className={styles.nameLink}
+                  >
+                    <h2>{prod.prod.nombre}</h2>
+                  </Link>
+                  <span>color: {prod.prod.color}</span>
+                  <br />
+                  <span>Cantidad: {prod.cantidad}</span>
+                  <p>S/{prod.prod.precio}</p>
+                </div>
+
+                <div>
+                  <span>
+                    <b>Total:</b>
+                  </span>
+                  <h3>S/{(prod.cantidad * prod.prod.precio).toFixed(2)} </h3>
+                </div>
+                <div>
+                  <RiDeleteBin6Line
+                    onClick={(e) => deleteProd(e, i)}
+                    className={styles.deleteIcon}
+                  />
+                </div>
+              </article>
+            ))
+          )}
+        </section>
+        {cart.length === 0 || (
+          <section className={styles.pay}>
+            <h2>Resumen</h2>
+            <div className={`${styles.spaceBw}`}>
+              <span>Subtotal:</span>
+              <span>S/{subTotal}</span>
+            </div>
+            <div className={`${styles.spaceBw}`}>
+              <span>Gastos de envío:</span>
+              <span>S/0.00</span>
+            </div>
+            <hr />
+            <div className={`${styles.spaceBw}`}>
+              <span>Total a pagar: </span>
+              <span>S/{subTotal}</span>
+            </div>
+            <button className={styles.payProd}>
+              <span>Pagar</span>
+            </button>
+          </section>
+        )}
+      </div>
+    </main>
+  ); */

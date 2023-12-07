@@ -1,4 +1,3 @@
-
 .main {
   width: 60%;
 }
@@ -6,13 +5,39 @@
 .prodsPay {
   display: grid;
   grid-template-columns: 2.5fr 1fr;
-  gap: 1rem
+  gap: 1rem;
+}
+
+.cartVoid {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cartVoidIcon {
+  font-size: 10rem;
+}
+
+.cartVoidButton {
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 2rem;
+  background-color: #ffcdb2;
+  cursor: pointer;
+}
+
+.cartVoidButton:active {
+  transform: scale(0.97);
 }
 
 .prodContainer {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 2fr 1fr 1fr 30px;
+  gap: 2rem;
+  color: rgb(51, 51, 51);
+  grid-template-columns: 1fr 2fr 1fr 30px;
   justify-content: space-between;
   align-items: center;
   padding-right: 5rem;
@@ -22,25 +47,18 @@
   margin-bottom: 1.5rem;
 }
 
-
-
-.countContainer {
-  gap: 1rem;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+.prodContainer img {
+  min-width: 120px;
 }
 
-.countContainer span {
-  margin: 0 10px;
+.nameLink h2 {
+  margin: 3px 0;
+  color: rgb(51, 51, 51);
 }
 
-.countContainer button {
-  background-color: #ffcdb2;
-  border: none;
-  font-size: 1.3rem;
-  width: 25px;
+.deleteIcon {
   cursor: pointer;
-  border-radius: 3px;
+  transform: scale(1.2);
 }
 
 .pay {
