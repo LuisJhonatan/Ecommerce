@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./Cards.module.css";
 import { FaAngleDown } from "react-icons/fa";
 import { CardsContainer } from "../CardsContainer/CardsContainer";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const arrOptions = [
   "Mas recientes",
@@ -12,10 +14,13 @@ const arrOptions = [
 ];
 
 export const Cards = () => {
+  const products = useSelector((state) => state.products.product);
+  const dispatch = useDispatch();
   const [options, setOptions] = useState(false);
   const [arrOption, setArrOption] = useState("");
 
   const handleOption = (e) => {
+ 
     setOptions(!options);
     setArrOption(e.target.textContent);
   };
@@ -46,15 +51,15 @@ export const Cards = () => {
         </button>
         {options && (
           <article className={styles.options}>
-            {arrOptions.map((opt) => (
-              <button key={opt} onClick={(e) => handleOption(e)}>
+            {arrOptions.map((opt, i) => (
+              <button key={i} onClick={(e) => handleOption(e)}>
                 {opt}
               </button>
             ))}
           </article>
         )}
       </div>
-      <CardsContainer />
+      <CardsContainer option={arrOption}/>
     </section>
   );
 };

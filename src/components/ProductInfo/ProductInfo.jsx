@@ -15,19 +15,16 @@ export const ProductInfo = () => {
   );
 
   const addToCart = () => {
-    const cart = {
+    const cartProds = {
       prod: prod[0].data,
+      id: prod[0].id,
       cantidad: count,
     };
-    console.log(cart);
-    dispatch(addCart(cart));
-
+    console.log(cartProds);
+    dispatch(addCart(cartProds));
   };
 
-  const cart =  useSelector(state => state.cart.cartp)
-
-  console.log(cart);
-
+  const cart = useSelector((state) => state.cart.cartp);
 
   return (
     <main>
